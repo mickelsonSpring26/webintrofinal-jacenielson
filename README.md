@@ -1,10 +1,10 @@
 # webintrofinal-jacenielson
 webintrofinal-jacenielson created by GitHub Classroom
 
-# Project Proposal: CineStream - Modern Cinema Experience
+# Project Proposal: JasonStream - Modern Cinema Experience
 
 ## Project Overview
-**JasonStream is a modern movie theater web app that simplifies how users discover films, check showtimes, and organize a personal Watchlist with intuitive drag-and-drop features.
+JasonStream is a modern movie theater web app that simplifies how users discover films, check showtimes, and organize a personal Watchlist with intuitive drag-and-drop features.
 
 ## Project Plan & Progress Tracking
 
