@@ -70,6 +70,7 @@ body {
 .content-area {
   flex: 1;
   padding: 2rem 5%;
+  font-size: 32px;
 }
 
 .main-footer {
@@ -82,4 +83,20 @@ body {
 
 .social-media{
     margin-top: 10px;
+}
+
+.sw-button{
+    background-color: var(--sky-blue);
+    color: var(--ghost-white);
+    padding: 12px 24px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform .2s, background-color .2s;
+}
+.sw-button:hover{
+    background-color: var(--electric-blue);
+    transform: scale(1.05);
 }
