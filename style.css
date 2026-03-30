@@ -1,0 +1,27 @@
+:root {
+  /* Main Back */
+  --deep-slate: #1e293b;
+  /* Navbars, Footers, Other Backgrounds */
+  --muted-slate: #334155;
+  /* Main Buttons, Links, and Icons */
+  --electric-blue: #3b82f6;
+  /* Hover States */
+  --sky-blue: #60a5fa;
+  /* Search Bars and Input Fields */
+  --navy-shadow: #0F172A;
+  /* Titles and Body Text */
+  --ghost-white: #F8FAFC;
+  /* Subtitles and other labels */
+  --cool-gray: #94A3B8;
+  /* Additional Buttons */
+  --indigo-blue: #6366F1;
+
+
+}
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
