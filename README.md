@@ -9,9 +9,9 @@ JasonStream is a modern movie theater web app that simplifies how users discover
 ## Project Plan & Progress Tracking
 
 ### April 01 (15%)
-* [ ] can see a shared nav bar and footer across all pages (Shared Layout).
-* [ ] can navigate between a Home page and a Now Playing page (Multiple Pages).
-* [ ] can see a basic grid layout of the site using Flexbox.
+* [X] can see a shared nav bar and footer across all pages (Shared Layout).
+* [X] can navigate between a Home page and a Now Playing page (Multiple Pages).
+* [X] can see a basic grid layout of the site using Flexbox.
 
 ### April 04 (30%)
 * [ ] can view a list of movies fetched from my custom Back-end API (Network Calls).
