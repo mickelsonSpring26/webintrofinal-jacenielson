@@ -8,20 +8,78 @@
   /* Hover States */
   --sky-blue: #60a5fa;
   /* Search Bars and Input Fields */
-  --navy-shadow: #0F172A;
+  --navy-shadow: #0f172a;
   /* Titles and Body Text */
-  --ghost-white: #F8FAFC;
+  --ghost-white: #f8fafc;
   /* Subtitles and other labels */
-  --cool-gray: #94A3B8;
+  --cool-gray: #94a3b8;
   /* Additional Buttons */
-  --indigo-blue: #6366F1;
-
-
+  --indigo-blue: #6366f1;
 }
 
-
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  background-color: var(--deep-slate);
+  color: var(--ghost-white);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background-color: var(--muted-slate);
+  border-bottom: 1px var(--deep-slate);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 300px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--cool-gray);
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: var(--sky-blue);
+}
+
+.content-area {
+  flex: 1;
+  padding: 2rem 5%;
+}
+
+.main-footer {
+  background-color: var(--muted-slate);
+  padding: 2rem 5%;
+  text-align: center;
+  border-top: 1px solid var(--deep-slate);
+  color: var(--cool-gray);
+}
+
+.social-media{
+    margin-top: 10px;
 }
