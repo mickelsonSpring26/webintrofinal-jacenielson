@@ -1,3 +1,5 @@
+import { GetMovies } from "/service.js";
+
 const pages = {
   home: () => {
     const section = document.createElement("section");
@@ -31,10 +33,48 @@ const pages = {
     const movieGrid = document.createElement("div");
     movieGrid.classList.add("movie-grid");
 
-    const textElement = document.createElement("p");
-    textElement.textContent = "Loading the latest movies...";
+    const statusMessage = document.createElement("p");
+    statusMessage.textContent = "Loading the latest movies...";
+    movieGrid.append(statusMessage);
 
-    movieGrid.append(textElement);
+    GetMovies().then((movies) => {
+      movieGrid.replaceChildren();
+
+      if (movies.length === 0) {
+        movieGrid.textContent = "No movies currently playing.";
+        return;
+      }
+
+      movies.forEach(movie => {
+        const card = document.createElement("div");
+        card.classList.add("movie-card");
+
+        const figureElement = document.createElement("figure");
+
+        const posterElement = document.createElement("img");
+        posterElement.src = movie.poster;
+        posterElement.alt = movie.title;
+
+        const figcaption = document.createElement("figcaption");
+
+        const titleElement = document.createElement("h3");
+        titleElement.textContent = movie.title;
+
+        const ratingElement = document.createElement("div");
+        ratingElement.classList.add("rating");
+        ratingElement.textContent = `${movie.rating} Stars`;
+
+        const genreElement = document.createElement("p");
+        genreElement.textContent = movie.genre.join(" / ");
+
+        figcaption.append(titleElement, ratingElement, genreElement);
+        figureElement.append(posterElement, figcaption);
+        card.append(figureElement);
+
+        movieGrid.append(card);
+      })
+    });
+
     section.append(titleElement, movieGrid);
     return section;
   },
@@ -61,3 +101,4 @@ nowPlayingLink.addEventListener("click", (e) => {
 });
 
 renderPage("home");
+console.log(GetMovies());
