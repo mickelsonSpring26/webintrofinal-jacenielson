@@ -14,9 +14,9 @@ JasonStream is a modern movie theater web app that simplifies how users discover
 * [X] can see a basic grid layout of the site using Flexbox.
 
 ### April 04 (30%)
-* [ ] can view a list of movies fetched from my custom Back-end API (Network Calls).
-* [ ] can see movie posters using the `<img>` and `<figure>` tags.
-* [ ] can hover over movie cards to see smooth CSS transitions and scale effects.
+* [X] can view a list of movies fetched from my custom Back-end API (Network Calls).
+* [X] can see movie posters using the `<img>` and `<figure>` tags.
+* [X] can hover over movie cards to see smooth CSS transitions and scale effects.
 
 ### April 08 (40%)
 * [ ] can filter movies by genre or rating using a functional filter bar (`map` and `filter` functions).
