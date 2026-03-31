@@ -15,7 +15,8 @@ const pages = {
     buttonElement.classList.add("sw-button");
     buttonElement.textContent = "Start Watching";
 
-    buttonElement.addEventListener("click", () => {
+    buttonElement.addEventListener("click", (e) => {
+      e.preventDefault();
       renderPage("nowPlaying");
     });
 
@@ -90,6 +91,12 @@ const renderPage = (selectedpage) => {
 
 const homeLink = document.getElementById("home-link");
 homeLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  renderPage("home");
+});
+
+const logoLink = document.getElementById("logo-link");
+logoLink.addEventListener("click", (e) => {
   e.preventDefault();
   renderPage("home");
 });
