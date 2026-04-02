@@ -38,15 +38,39 @@ const pages = {
     statusMessage.textContent = "Loading the latest movies...";
     movieGrid.append(statusMessage);
 
-    GetMovies().then((movies) => {
-      movieGrid.replaceChildren();
+    const formElement = document.createElement("form");
+    formElement.classList.add("movie-filter-form");
 
-      if (movies.length === 0) {
+    const searchBar = document.createElement("input");
+    searchBar.type = "text";
+    searchBar.placeholder = "Search for a title ...";
+    searchBar.classList.add("movie-search-input");
+
+    const submitBtn = document.createElement("button");
+    submitBtn.type = "submit";
+    submitBtn.textContent = "SEARCH";
+    submitBtn.classList.add("movie-submit-btn");
+
+    formElement.append(searchBar, submitBtn);
+    formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const searchTitle = searchBar.value.toLowerCase().trim();
+      const filteredMovies = allMovies.filter((movie) =>
+        movie.title.toLowerCase().includes(searchTitle),
+      );
+      renderMovieGrid(filteredMovies);
+    });
+
+    const renderMovieGrid = (moviesToDisplay) => {
+      movieGrid.replaceChildren();
+      
+      if (moviesToDisplay.length === 0) {
         movieGrid.textContent = "No movies currently playing.";
         return;
       }
 
-      movies.forEach(movie => {
+      moviesToDisplay.forEach((movie) => {
         const card = document.createElement("div");
         card.classList.add("movie-card");
 
@@ -73,10 +97,16 @@ const pages = {
         card.append(figureElement);
 
         movieGrid.append(card);
-      })
+      });
+    }
+    let allMovies = [];
+    GetMovies().then((movies) => {
+      movieGrid.replaceChildren();
+      allMovies = movies;
+      renderMovieGrid(allMovies);
     });
 
-    section.append(titleElement, movieGrid);
+    section.append(titleElement, formElement, movieGrid);
     return section;
   },
 };
