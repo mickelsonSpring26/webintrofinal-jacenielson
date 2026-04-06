@@ -19,9 +19,9 @@ JasonStream is a modern movie theater web app that simplifies how users discover
 * [X] can hover over movie cards to see smooth CSS transitions and scale effects.
 
 ### April 08 (40%)
-* [ ] can filter movies by genre or rating using a functional filter bar (`map` and `filter` functions).
+* [X] can filter movies by rating using a functional filter bar (`map` and `filter` functions).
 * [X] can use a search form with text inputs and a submit button to find specific titles.
-* [ ] can see a formatted list of showtimes using `<ul>` or `<dl>` elements.
+* [X] can see a formatted list of showtimes using `<ul>` or `<dl>` elements.
 
 ### April 11 (50%)
 * [ ] can click a movie to see details populated by reading the `querystring`.

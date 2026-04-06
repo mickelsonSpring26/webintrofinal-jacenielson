@@ -47,11 +47,48 @@ const pages = {
     searchBar.classList.add("movie-search-input");
 
     const submitBtn = document.createElement("button");
-    submitBtn.type = "submit";
     submitBtn.textContent = "SEARCH";
     submitBtn.classList.add("movie-submit-btn");
 
-    formElement.append(searchBar, submitBtn);
+    const filterBtn = document.createElement("select");
+    filterBtn.classList.add("movie-filter-dropdown");
+
+    const options = [
+      { text: "Sort By: Default", value: "default"},
+      {text: "Rating: Highest to Lowest", value: "high"},
+      {text: "Rating: Lowest to Highest", value: "low"}
+    ];
+
+    options.forEach(option => {
+      const element = document.createElement("option");
+      element.value = option.value;
+      element.textContent = option.text;
+      filterBtn.appendChild(element);
+    });
+
+    filterBtn.addEventListener("change", (e) => {
+      const choice = e.target.value;
+
+      let sortedMovies = [...allMovies];
+      if(choice === "high"){
+        sortedMovies.sort((a,b) => b.rating - a.rating);
+      }
+      else if(choice === "low"){
+        sortedMovies.sort((a,b) => a.rating-b.rating);
+      }
+      else{
+        sortedMovies = allMovies;
+      }
+
+      renderMovieGrid(sortedMovies);
+    });
+
+    const searchDiv = document.createElement("div");
+    searchDiv.classList.add("search-group");
+    searchDiv.append(searchBar, submitBtn);
+
+    formElement.append(searchDiv, filterBtn);
+
     formElement.addEventListener("submit", (e) => {
       e.preventDefault();
 
@@ -92,7 +129,23 @@ const pages = {
         const genreElement = document.createElement("p");
         genreElement.textContent = movie.genre.join(" / ");
 
-        figcaption.append(titleElement, ratingElement, genreElement);
+        const showTimeContainer = document.createElement("div");
+        showTimeContainer.classList.add("movie-showtimes");
+
+        const showTimeTitleElement = document.createElement("h4");
+        showTimeTitleElement.textContent = "Showtimes:";
+
+        const showTimeList = document.createElement("ul");
+        showTimeList.classList.add("showtime-list");
+
+        movie.showtimes.forEach(time => {
+          const listItemElement = document.createElement("li");
+          listItemElement.textContent = time;
+          showTimeList.append(listItemElement);
+        })
+
+        showTimeContainer.append(showTimeTitleElement, showTimeList);
+        figcaption.append(titleElement, ratingElement, genreElement, showTimeContainer);
         figureElement.append(posterElement, figcaption);
         card.append(figureElement);
 
