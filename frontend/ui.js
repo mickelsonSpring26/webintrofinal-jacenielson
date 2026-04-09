@@ -54,12 +54,12 @@ const pages = {
     filterBtn.classList.add("movie-filter-dropdown");
 
     const options = [
-      { text: "Sort By: Default", value: "default"},
-      {text: "Rating: Highest to Lowest", value: "high"},
-      {text: "Rating: Lowest to Highest", value: "low"}
+      { text: "Sort By: Default", value: "default" },
+      { text: "Rating: Highest to Lowest", value: "high" },
+      { text: "Rating: Lowest to Highest", value: "low" },
     ];
 
-    options.forEach(option => {
+    options.forEach((option) => {
       const element = document.createElement("option");
       element.value = option.value;
       element.textContent = option.text;
@@ -70,13 +70,11 @@ const pages = {
       const choice = e.target.value;
 
       let sortedMovies = [...allMovies];
-      if(choice === "high"){
-        sortedMovies.sort((a,b) => b.rating - a.rating);
-      }
-      else if(choice === "low"){
-        sortedMovies.sort((a,b) => a.rating-b.rating);
-      }
-      else{
+      if (choice === "high") {
+        sortedMovies.sort((a, b) => b.rating - a.rating);
+      } else if (choice === "low") {
+        sortedMovies.sort((a, b) => a.rating - b.rating);
+      } else {
         sortedMovies = allMovies;
       }
 
@@ -101,7 +99,7 @@ const pages = {
 
     const renderMovieGrid = (moviesToDisplay) => {
       movieGrid.replaceChildren();
-      
+
       if (moviesToDisplay.length === 0) {
         movieGrid.textContent = "No movies currently playing.";
         return;
@@ -138,20 +136,36 @@ const pages = {
         const showTimeList = document.createElement("ul");
         showTimeList.classList.add("showtime-list");
 
-        movie.showtimes.forEach(time => {
+        movie.showtimes.forEach((time) => {
           const listItemElement = document.createElement("li");
           listItemElement.textContent = time;
           showTimeList.append(listItemElement);
-        })
+        });
+
+        const detailLinkElement = document.createElement("a");
+        detailLinkElement.classList.add("detailBtn");
+        detailLinkElement.href = `details.html?id=${movie.id}`;
+        detailLinkElement.textContent = "VIEW DETAILS";
+
+        card.addEventListener("click", (e) => {
+          e.preventDefault();
+          window.history.pushState({}, "", `?id=${movie.id}`);
+          renderPage("movieDetails");
+        });
 
         showTimeContainer.append(showTimeTitleElement, showTimeList);
-        figcaption.append(titleElement, ratingElement, genreElement, showTimeContainer);
+        figcaption.append(
+          titleElement,
+          ratingElement,
+          genreElement,
+          showTimeContainer,
+          detailLinkElement,
+        );
         figureElement.append(posterElement, figcaption);
         card.append(figureElement);
-
         movieGrid.append(card);
       });
-    }
+    };
     let allMovies = [];
     GetMovies().then((movies) => {
       movieGrid.replaceChildren();
@@ -161,6 +175,57 @@ const pages = {
 
     section.append(titleElement, formElement, movieGrid);
     return section;
+  },
+  movieDetails: () => {
+    const sectionElement = document.createElement("section");
+
+    const parameters = new URLSearchParams(window.location.search);
+    const movieId = parameters.get("id");
+
+    if (!movieId) {
+      sectionElement.textContent = "No movie selected.";
+      return sectionElement;
+    }
+
+    GetMovies().then((movies) => {
+      const selectedMovie = movies.find((m) => m.id == movieId);
+
+      if (selectedMovie) {
+        const titleElement = document.createElement("h1");
+        titleElement.textContent = selectedMovie.title;
+
+        const posterElement = document.createElement("img");
+        posterElement.src = selectedMovie.poster;
+        posterElement.classList.add("detail-poster");
+
+        const descriptionElement = document.createElement("p");
+        descriptionElement.classList.add("detail-description")
+        descriptionElement.textContent =
+          selectedMovie.description || "No description available.";
+
+        const backBtnElement = document.createElement("button");
+        backBtnElement.textContent = "Back to Movies";
+        backBtnElement.classList.add("detailBtn");
+
+        backBtnElement.addEventListener("click", () => {
+          window.history.pushState({}, "", "/");
+          renderPage("nowPlaying");
+        });
+        const contentDiv = document.createElement("div");
+        contentDiv.classList.add("details-content");
+
+        const infoDiv = document.createElement("div");
+        infoDiv.classList.add("detail-info");
+
+        infoDiv.append(titleElement, descriptionElement, backBtnElement);
+        contentDiv.append(posterElement, infoDiv);
+
+        sectionElement.append(contentDiv);
+      } else {
+        sectionElement.textContent = "Movie not found.";
+      }
+    });
+    return sectionElement;
   },
 };
 
