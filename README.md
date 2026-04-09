@@ -36,7 +36,7 @@ JasonStream is a modern movie theater web app that simplifies how users discover
 ### April 18 (80%)
 * [ ] can drag and drop a movie poster into a Watchlist section to save it for later.
 * [ ] can remove items from their Watchlist, triggering a DOM element deletion through JavaScript.
-* [] Make sure color palette is good.
+* [ ] Make sure color palette is good.
 
 ### April 22 (90%)
 * [ ] can access the site and its data hosted on a cloud server (Back-end API hosting).
