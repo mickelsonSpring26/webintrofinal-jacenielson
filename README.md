@@ -24,19 +24,19 @@ JasonStream is a modern movie theater web app that simplifies how users discover
 * [X] can see a formatted list of showtimes using `<ul>` or `<dl>` elements.
 
 ### April 11 (50%)
-* [ ] can click a movie to see details populated by reading the `querystring`.
+* [X] can click a movie to see details populated by reading the `querystring`.
 * [ ] can add a movie to their "Favorites" which persists using `localStorage`.
 * [ ] can view a "Contact Us" form that utilizes `select` menus, `number` inputs, and `reset` functionality.
 
 ### April 15 (70%)
-* [ ] can drag and drop a movie poster into a Watchlist section to save it for later.
-* [ ] can remove items from their Watchlist, triggering a DOM element deletion through JavaScript.
-* [ ] Make sure color palette is good.
+* [X] can interact with a site that uses JavaScript Modules (`import/export`) to keep code organized into UI, Domain, and Service layers.
+* [X] can see advanced CSS in action using `nth-child` for striped list data and CSS variables for global coloring.
+* [X] can view data that has been cleaned and organized using `async/await` and Promises.
 
 ### April 18 (80%)
-* [ ] can interact with a site that uses JavaScript Modules (`import/export`) to keep code organized into UI, Domain, and Service layers.
-* [ ] can see advanced CSS in action using `nth-child` for striped list data and CSS variables for global coloring.
-* [ ] can view data that has been cleaned and organized using `async/await` and Promises.
+* [ ] can drag and drop a movie poster into a Watchlist section to save it for later.
+* [ ] can remove items from their Watchlist, triggering a DOM element deletion through JavaScript.
+* [] Make sure color palette is good.
 
 ### April 22 (90%)
 * [ ] can access the site and its data hosted on a cloud server (Back-end API hosting).
