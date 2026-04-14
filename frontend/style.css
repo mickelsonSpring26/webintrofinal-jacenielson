@@ -16,6 +16,7 @@
   /* Additional Buttons */
   --indigo-blue: #6366f1;
   --gold: #f1c40f;
+  --warmer-gold: #fbbf24;
   --shadow-black: rgba(0, 0, 0, 0.3);
 }
 
@@ -335,5 +336,15 @@ body {
   font-size: 2rem;
   line-height: 1.6;
   color: var(--ghost-white);
+}
+
+.favBtn{
+  background-color: var(--gold);
+  color: var(--navy-shadow);
+  margin-top: 10px;
+}
+.favBtn:hover {
+  background-color: var(--warmer-gold);
+  transform: scale (1.05);
 }
 

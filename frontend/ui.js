@@ -1,4 +1,4 @@
-import { GetMovies } from "/service.js";
+import { GetMovies, GetFavorites, SaveFavorite } from "/service.js";
 
 const pages = {
   home: () => {
@@ -211,13 +211,22 @@ const pages = {
           window.history.pushState({}, "", "/");
           renderPage("nowPlaying");
         });
+
+        const FavButtonElement = document.createElement("button");
+        FavButtonElement.classList.add("detailBtn", "favBtn");
+        FavButtonElement.textContent = "Add to Favorites";
+
+        FavButtonElement.addEventListener("click", () => {
+          SaveFavorite(selectedMovie);
+        })
+
         const contentDiv = document.createElement("div");
         contentDiv.classList.add("details-content");
 
         const infoDiv = document.createElement("div");
         infoDiv.classList.add("detail-info");
 
-        infoDiv.append(titleElement, descriptionElement, backBtnElement);
+        infoDiv.append(titleElement, descriptionElement, FavButtonElement, backBtnElement);
         contentDiv.append(posterElement, infoDiv);
 
         sectionElement.append(contentDiv);
