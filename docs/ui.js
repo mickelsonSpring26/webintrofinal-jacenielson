@@ -3,7 +3,7 @@ import {
   GetFavorites,
   SaveFavorite,
   RemoveFavorite,
-} from "/service.js";
+} from "./service.js";
 
 const pages = {
   home: () => {
