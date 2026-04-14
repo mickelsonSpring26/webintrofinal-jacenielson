@@ -162,7 +162,7 @@ body {
   gap: 0.5rem;
 }
 
-.movie-card figcaption p{
+.movie-card figcaption p {
   font-size: 1.12rem;
 }
 
@@ -185,7 +185,7 @@ body {
   max-width: 600px;
 }
 
-.search-group{
+.search-group {
   display: flex;
   width: 100%;
 }
@@ -245,17 +245,17 @@ body {
 .movie-showtimes {
   margin-top: 1rem;
   border-top: 1px solid var(--deep-slate);
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
 .movie-showtimes h4 {
   font-size: 1.15rem;
   color: var(--cool-gray);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 
-.showtime-list{
+.showtime-list {
   list-style: none;
   padding: 0;
   display: flex;
@@ -263,12 +263,12 @@ body {
   gap: 8px;
 }
 
-.showtime-list li{
+.showtime-list li {
   background-color: var(--deep-slate);
   color: var(--ghost-white);
   padding: 4px 10px;
   border-radius: 4px;
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-size: 1.15rem;
   border: 1px solid var(--muted-slate);
 }
@@ -278,7 +278,7 @@ body {
   color: var(--cool-gray);
 }
 
-.detailBtn{
+.detailBtn {
   display: block;
   text-align: center;
   background-color: var(--sky-blue);
@@ -290,16 +290,19 @@ body {
   font-size: 1rem;
   letter-spacing: 1px;
   border-radius: 6px;
-  transition: background-color .3s ease, transform .2s ease, box-shadow .3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
   border: none;
 }
-.detailBtn:hover{
+.detailBtn:hover {
   background-color: var(--indigo-blue);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px var(--navy-shadow);
 }
 
-.details-content{
+.details-content {
   display: flex;
   gap: 3rem;
   align-items: flex-start;
@@ -308,7 +311,7 @@ body {
   padding: 0 2rem;
 }
 
-.detail-poster{
+.detail-poster {
   width: 400px;
   height: 600px;
   object-fit: cover;
@@ -316,29 +319,29 @@ body {
 
   border-radius: 6px;
   box-shadow: 0 10px 30px var(--shadow-black);
-  border: 1px solid var(--muted-slate)
+  border: 1px solid var(--muted-slate);
 }
 
-.detail-info{
+.detail-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
 
-.detail-info h1{
+.detail-info h1 {
   font-size: 3rem;
   margin: 0;
   color: var(--ghost-white);
 }
 
-.detail-description{
+.detail-description {
   font-size: 2rem;
   line-height: 1.6;
   color: var(--ghost-white);
 }
 
-.favBtn{
+.favBtn {
   background-color: var(--gold);
   color: var(--navy-shadow);
   margin-top: 10px;
@@ -348,3 +351,20 @@ body {
   transform: scale (1.05);
 }
 
+.favBtn.isFavorite {
+  background-color: var(--warmer-gold);
+  color: var(--ghost-white);
+  border: 2px solid var(--gold);
+  box-shadow: 0 4px 15px var(--navy-shadow);
+  transform: scale(1.02);
+}
+.favBtn.isFavorite:hover {
+  background-color: var(--electric-blue);
+  border-color: var(--sky-blue);
+  color: var(--ghost-white);
+  transform: scale(0.98);
+}
+.favBtn.isFavorite:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}

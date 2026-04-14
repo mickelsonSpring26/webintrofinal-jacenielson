@@ -22,3 +22,9 @@ export const SaveFavorite = (movie) => {
     alert("This movie is already in your favorites.");
   }
 };
+
+export const RemoveFavorite = (movieId) => {
+    let favorites = GetFavorites();
+    favorites = favorites.filter(m => m.id !== movieId);
+    localStorage.setItem("jasonStream_favorites", JSON.stringify(favorites));
+}

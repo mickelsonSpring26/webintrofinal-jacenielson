@@ -1,4 +1,9 @@
-import { GetMovies, GetFavorites, SaveFavorite } from "/service.js";
+import {
+  GetMovies,
+  GetFavorites,
+  SaveFavorite,
+  RemoveFavorite,
+} from "/service.js";
 
 const pages = {
   home: () => {
@@ -199,7 +204,7 @@ const pages = {
         posterElement.classList.add("detail-poster");
 
         const descriptionElement = document.createElement("p");
-        descriptionElement.classList.add("detail-description")
+        descriptionElement.classList.add("detail-description");
         descriptionElement.textContent =
           selectedMovie.description || "No description available.";
 
@@ -214,11 +219,30 @@ const pages = {
 
         const FavButtonElement = document.createElement("button");
         FavButtonElement.classList.add("detailBtn", "favBtn");
-        FavButtonElement.textContent = "Add to Favorites";
+
+        let isFavorite = GetFavorites().some((f) => f.id === selectedMovie.id);
+
+        const updateFavoriteUI = () => {
+          if (isFavorite) {
+            FavButtonElement.textContent = "Remove Favorite";
+            FavButtonElement.classList.add("isFavorite");
+          } else {
+            FavButtonElement.textContent = "Add to Favorites";
+            FavButtonElement.classList.remove("isFavorite");
+          }
+        };
+        updateFavoriteUI();
 
         FavButtonElement.addEventListener("click", () => {
-          SaveFavorite(selectedMovie);
-        })
+          if (isFavorite) {
+            RemoveFavorite(selectedMovie.id);
+            isFavorite = false;
+          } else {
+            SaveFavorite(selectedMovie);
+            isFavorite = true;
+          }
+          updateFavoriteUI();
+        });
 
         const contentDiv = document.createElement("div");
         contentDiv.classList.add("details-content");
@@ -226,7 +250,12 @@ const pages = {
         const infoDiv = document.createElement("div");
         infoDiv.classList.add("detail-info");
 
-        infoDiv.append(titleElement, descriptionElement, FavButtonElement, backBtnElement);
+        infoDiv.append(
+          titleElement,
+          descriptionElement,
+          FavButtonElement,
+          backBtnElement,
+        );
         contentDiv.append(posterElement, infoDiv);
 
         sectionElement.append(contentDiv);
