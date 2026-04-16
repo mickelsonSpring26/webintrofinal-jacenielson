@@ -118,6 +118,7 @@ body {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 200px;
 }
 
 .movie-card {
@@ -367,4 +368,57 @@ body {
 .favBtn.isFavorite:active {
   transform: scale(0.95);
   transition: transform 0.1s;
+}
+
+.watchlist-container {
+  position:fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  background-color: var(--navy-shadow);
+  border-top: 3px solid var(--electric-blue);
+  padding: 15px 25px;
+  z-index: 1000;
+  height: 220px;
+}
+
+.watchlist-drop-zone {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  overflow-x: auto;
+  height: 160px;
+  align-items: center;
+}
+
+.watchlist-thumbnail{
+  height: 150px;
+  width: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--muted-slate);
+  transition: transform .2s ease-in-out;
+}
+.watchlist-thumbnail:hover{
+  transform: scale(1.1);
+  borderr-color: var(--electric-blue);
+  z-index: 10;
+}
+
+.watchlist-item-wrapper{
+  position: relative;
+  flex-shrink: 0;
+}
+
+.remove-item-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--sky-blue);
+  color: var(--ghost-white);
+  border: none;
+  border-radius: 6px;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
 }

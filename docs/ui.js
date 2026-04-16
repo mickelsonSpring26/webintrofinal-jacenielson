@@ -113,6 +113,11 @@ const pages = {
       moviesToDisplay.forEach((movie) => {
         const card = document.createElement("div");
         card.classList.add("movie-card");
+        card.draggable = true;
+
+        card.addEventListener("dragstart", (e) => {
+          e.dataTransfer.setData("text/plain", movie.id);
+        });
 
         const figureElement = document.createElement("figure");
 
@@ -178,7 +183,84 @@ const pages = {
       renderMovieGrid(allMovies);
     });
 
-    section.append(titleElement, formElement, movieGrid);
+    const watchlistDiv = document.createElement("div");
+    watchlistDiv.id = "watchlist-footer";
+    watchlistDiv.classList.add("watchlist-container");
+
+    const watchlistH3 = document.createElement("h3");
+    watchlistH3.textContent = "My Watchlist";
+
+    const dropDiv = document.createElement("div");
+    dropDiv.id = "watchlist-items";
+    dropDiv.classList.add("watchlist-drop-zone");
+
+    const placeholder = document.createElement("p");
+    placeholder.classList.add("placeholder-text");
+    placeholder.textContent = "Drag a movie here to save for later!";
+
+    dropDiv.append(placeholder);
+    watchlistDiv.append(watchlistH3, dropDiv);
+
+    const setupDropLogic = (area) => {
+      area.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        area.classList.add("hover");
+      });
+
+      area.addEventListener("dragleave", () => {
+        area.classList.remove("hover");
+      });
+
+      area.addEventListener("drop", (e) => {
+        e.preventDefault();
+        area.classList.remove("hover");
+
+        const movieId = e.dataTransfer.getData("text/plain");
+
+        GetMovies().then((movies) => {
+          const movie = movies.find((m) => m.id == movieId);
+          if (movie) {
+            renderWatchlistMovie(movie, area);
+          }
+        });
+      });
+    };
+    setupDropLogic(dropDiv);
+
+    const renderWatchlistMovie = (movie, area) => {
+      const placeholder = area.querySelector(".placeholder-text");
+      if (placeholder) {
+        placeholder.remove();
+      }
+      const movieWrapper = document.createElement("div");
+      movieWrapper.classList.add("watchlist-item-wrapper");
+
+      const imgElement = document.createElement("img");
+      imgElement.src = movie.poster;
+      imgElement.alt = movie.title;
+      imgElement.classList.add("watchlist-thumbnail");
+
+      imgElement.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.history.pushState({}, "", `?id=${movie.id}`);
+        renderPage("movieDetails");
+      });
+
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "X";
+      removeBtn.classList.add("remove-item-btn");
+
+      removeBtn.addEventListener("click", () => {
+        movieWrapper.remove();
+        if (area.children.length === 0) {
+          area.appendChild(placeholder);
+        }
+      });
+      movieWrapper.append(imgElement, removeBtn);
+      area.appendChild(movieWrapper);
+    };
+
+    section.append(titleElement, formElement, movieGrid, watchlistDiv);
     return section;
   },
   movieDetails: () => {
