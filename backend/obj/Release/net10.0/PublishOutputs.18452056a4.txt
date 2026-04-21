@@ -1,0 +1,7 @@
+C:\Users\jace.nielson\webIntro\webintrofinal-jacenielson\backend\bin\Release\net10.0\publish\backend.exe
+C:\Users\jace.nielson\webIntro\webintrofinal-jacenielson\backend\bin\Release\net10.0\publish\appsettings.Development.json
+C:\Users\jace.nielson\webIntro\webintrofinal-jacenielson\backend\bin\Release\net10.0\publish\appsettings.json
+C:\Users\jace.nielson\webIntro\webintrofinal-jacenielson\backend\bin\Release\net10.0\publish\backend.dll
+C:\Users\jace.nielson\webIntro\webintrofinal-jacenielson\backend\bin\Release\net10.0\publish\backend.deps.json
+C:\Users\jace.nielson\webIntro\webintrofinal-jacenielson\backend\bin\Release\net10.0\publish\backend.runtimeconfig.json
+C:\Users\jace.nielson\webIntro\webintrofinal-jacenielson\backend\bin\Release\net10.0\publish\backend.pdb
