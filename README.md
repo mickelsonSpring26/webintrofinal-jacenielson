@@ -39,7 +39,7 @@ JasonStream is a modern movie theater web app that simplifies how users discover
 * [ ] Make sure color palette is good.
 
 ### April 22 (90%)
-* [ ] can access the site and its data hosted on a cloud server (Back-end API hosting).
+* [X] can access the site and its data hosted on a cloud server (Back-end API hosting).
 * [X] can experience "Async/Await" loading states while data is being fetched.
 * [X] can navigate a fully responsive site that meets all professional margin, padding, and border-radius guidelines.
 
