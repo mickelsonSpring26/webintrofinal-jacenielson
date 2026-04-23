@@ -172,6 +172,7 @@ const pages = {
         ratingElement.textContent = `${movie.rating} Stars`;
 
         const genreElement = document.createElement("p");
+        genreElement.classList.add("genre")
         genreElement.textContent = movie.genre.join(" / ");
 
         const showTimeContainer = document.createElement("div");

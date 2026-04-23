@@ -26,7 +26,7 @@ JasonStream is a modern movie theater web app that simplifies how users discover
 ### April 11 (50%)
 * [X] can click a movie to see details populated by reading the `querystring`.
 * [X] can add a movie to their "Favorites" which persists using `localStorage`.
-* [ ] can view a "Contact Us" form that utilizes `select` menus, `number` inputs, and `reset` functionality.
+* [X] can view a "Contact Us" form that utilizes `select` menus, `number` inputs, and `reset` functionality.
 
 ### April 15 (70%)
 * [X] can interact with a site that uses JavaScript Modules (`import/export`) to keep code organized into UI, Domain, and Service layers.

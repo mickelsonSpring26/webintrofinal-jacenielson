@@ -6,16 +6,16 @@
   /* Main Buttons, Links, and Icons */
   --electric-blue: #3b82f6;
   /* Hover States */
-  --sky-blue: #60a5fa;
+  --sky-blue: #5788c5;
   /* Search Bars and Input Fields */
   --navy-shadow: #0f172a;
   /* Titles and Body Text */
-  --ghost-white: #f8fafc;
+  --ghost-white: #ecebeb;
   /* Subtitles and other labels */
-  --cool-gray: #94a3b8;
+  --cool-gray: #acbed7;
   /* Additional Buttons */
   --indigo-blue: #6366f1;
-  --gold: #f1c40f;
+  --gold: #ffd42ae7;
   --warmer-gold: #fbbf24;
   --shadow-black: rgba(0, 0, 0, 0.3);
 }
@@ -160,18 +160,16 @@ body {
 }
 
 .movie-card {
+  display: flex;
+  flex-direction: column;
   text-align: left;
   flex: 0 1 280px;
   background-color: var(--deep-slate);
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: 0 4px 10px var(--shadow-black);
-
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
 }
 
 .movie-card:hover {
@@ -182,9 +180,9 @@ body {
 .movie-card figure {
   margin: 0;
   padding: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .movie-card img {
@@ -194,25 +192,29 @@ body {
 }
 
 .movie-card figcaption {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   padding: 1.5rem;
   color: var(--ghost-white);
-  flex-grow: 1;
-  flex-direction: column;
   gap: 0.5rem;
-}
-
-.movie-card figcaption p {
-  font-size: 1.12rem;
 }
 
 .movie-card h3 {
   margin: 0;
   font-size: 1.75rem;
+  font-weight: bold;
+  flex-grow: 1;
+  display: flex;
 }
 
 .rating {
   color: var(--gold);
-  font-weight: bold;
+}
+.genre{
+  display: flex;
+  flex-grow: 1;
+  font-size: 1.15rem;
 }
 
 .movie-filter-form {
@@ -251,9 +253,9 @@ body {
   font-weight: 700;
   letter-spacing: 1px;
   padding: 12px 25px;
-  background-color: var(--cool-gray);
-  color: var(--ghost-white);
-  border: 2px solid var(--muted-slate);
+  background-color: var(--ghost-white);
+  color: var(--muted-slate);
+  border-left: 3px solid var(--ghost-white);
   border-radius: 0 8px 8px 0;
   font-weight: bold;
   transition:
@@ -382,7 +384,7 @@ body {
 
 .favBtn {
   background-color: var(--gold);
-  color: var(--navy-shadow);
+  color: var(--ghost-white);
   margin-top: 10px;
 }
 .favBtn:hover {
