@@ -25,7 +25,44 @@ const pages = {
       renderPage("nowPlaying");
     });
 
-    section.append(titleElement, bodyElement, buttonElement);
+    const contactFormDiv = document.createElement("div");
+    contactFormDiv.classList.add("contact-form");
+
+    const titleH3 = document.createElement("h3");
+    titleH3.textContent = "Contact Us";
+
+    const formElement = document.createElement("form");
+
+    const emailInput = document.createElement("input");
+    emailInput.type = "email";
+    emailInput.placeholder = "Your Email";
+    emailInput.required = true;
+
+    const ratingLabel = document.createElement("label");
+    ratingLabel.textContent = "Rate us (1-10):";
+    const ratingInput = document.createElement("input");
+    ratingInput.type = "number";
+    ratingInput.min = "1";
+    ratingInput.max = "10";
+    ratingInput.value = "10";
+
+    const buttonsDiv = document.createElement("div");
+    buttonsDiv.classList.add("form-buttons");
+
+    const submitBtn = document.createElement("button");
+    submitBtn.textContent = "Submit";
+    submitBtn.classList.add("formBtn");
+
+    const clearBtn = document.createElement("button");
+    clearBtn.type = "reset";
+    clearBtn.textContent = "Clear";
+    clearBtn.classList.add("formBtn");
+
+    buttonsDiv.append(submitBtn, clearBtn);
+    formElement.append(emailInput, ratingLabel, ratingInput, buttonsDiv);
+    contactFormDiv.append(titleH3, formElement);
+
+    section.append(titleElement, bodyElement, buttonElement, contactFormDiv);
     return section;
   },
 

@@ -1,7 +1,7 @@
 
 export async function GetMovies() {
-  //  const url = "http://localhost:5126/movies";
-  const url = "https://webintrofinal-jacenielson.onrender.com/movies";
+   const url = "http://localhost:5126/movies";
+  // const url = "https://webintrofinal-jacenielson.onrender.com/movies";
   const response = await fetch(url);
   const data = response.json();
   return data;

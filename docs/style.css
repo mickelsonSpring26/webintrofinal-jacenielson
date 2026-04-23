@@ -74,6 +74,7 @@ body {
   flex: 1;
   padding: 2rem 5%;
   font-size: 32px;
+  margin: auto;
 }
 
 .main-footer {
@@ -105,6 +106,43 @@ body {
   background-color: var(--electric-blue);
   transform: scale(1.05);
 }
+
+.contact-form {
+  max-width: 600px;
+  margin: 40px;
+  padding: 20px;
+  background-color: var(--navy-shadow);
+  border: 1px solid var(--muted-slate);
+  border-radius: 10px;
+}
+.contact-form form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.contact-form input {
+  background-color: var(--deep-slate);
+  border: 1px solid var(--muted-slate);
+  color: var(--ghost-white);
+  padding: 10px;
+  border-radius: 5px;
+}
+.form-buttons{
+  display: flex;
+  gap: 10px;
+}
+.formBtn{
+  background: none;
+  border: 1px solid var(--cool-gray);
+  color: var(--cool-gray);
+  padding: 10px;
+  border-radius: 5px;
+}
+.formBtn:hover{
+  color: var(--sky-blue);
+  border-color: var(--sky-blue);
+}
+
 
 .now-playing {
   text-align: center;
@@ -401,7 +439,7 @@ body {
 }
 .watchlist-thumbnail:hover{
   transform: scale(1.1);
-  borderr-color: var(--electric-blue);
+  border-color: var(--electric-blue);
   z-index: 10;
 }
 
